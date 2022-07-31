@@ -18,7 +18,7 @@ class _PlaneChasePageState extends State<PlaneChasePage> {
   @override
   void initState() {
     super.initState();
-    page = rng.nextInt(40) + 1;
+    //page = rng.nextInt(40) + 1;
   }
 
   @override
@@ -26,12 +26,51 @@ class _PlaneChasePageState extends State<PlaneChasePage> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          page = rng.nextInt(20) + 1;
+          //page = rng.nextInt(20) + 1;
+          if (page < planes.length) {
+            page += 1;
+            print(page);
+          } else {
+            page = 1;
+          }
         });
       },
-      child: Image.network(
-        planes[page]!,
-        fit: BoxFit.fitHeight,
+      child: Container(
+        color: Colors.white,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Image.network(
+              planes[page]!,
+              fit: BoxFit.fitHeight,
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      planesText[page] ?? '',
+                      overflow: TextOverflow.clip,
+                      style: TextStyle(fontSize: 12, color: Colors.black87),
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Text(
+                      planesChaosText[page] ?? '',
+                      overflow: TextOverflow.clip,
+                      style: TextStyle(fontSize: 12, color: Colors.red),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
