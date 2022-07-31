@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'const/planesUrl.dart';
 
@@ -19,6 +20,10 @@ class _PlaneChasePageState extends State<PlaneChasePage> {
   void initState() {
     super.initState();
     //page = rng.nextInt(40) + 1;
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+    ]);
   }
 
   @override
@@ -55,7 +60,11 @@ class _PlaneChasePageState extends State<PlaneChasePage> {
                     Text(
                       planesText[page] ?? '',
                       overflow: TextOverflow.clip,
-                      style: TextStyle(fontSize: 12, color: Colors.black87),
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black87,
+                        decoration: TextDecoration.none,
+                      ),
                     ),
                     const SizedBox(
                       height: 12,
@@ -63,7 +72,11 @@ class _PlaneChasePageState extends State<PlaneChasePage> {
                     Text(
                       planesChaosText[page] ?? '',
                       overflow: TextOverflow.clip,
-                      style: TextStyle(fontSize: 12, color: Colors.red),
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.red,
+                        decoration: TextDecoration.none,
+                      ),
                     ),
                   ],
                 ),
