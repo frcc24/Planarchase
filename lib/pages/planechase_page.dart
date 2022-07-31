@@ -60,7 +60,7 @@ class _PlaneChasePageState extends State<PlaneChasePage> {
                     Text(
                       planesText[page] ?? '',
                       overflow: TextOverflow.clip,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         color: Colors.black87,
                         decoration: TextDecoration.none,
@@ -72,7 +72,7 @@ class _PlaneChasePageState extends State<PlaneChasePage> {
                     Text(
                       planesChaosText[page] ?? '',
                       overflow: TextOverflow.clip,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 13,
                         color: Colors.red,
                         decoration: TextDecoration.none,
